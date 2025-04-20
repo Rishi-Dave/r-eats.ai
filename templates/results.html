@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Restaurant Predictions</title>
+</head>
+<body>
+    <h1>Predictions for: {{ query }}</h1>
+    {% if predictions %}
+        {% for prediction in predictions.split('\n\n') %}
+            <p>{{ prediction|replace('\n', '<br>')|safe }}</p>
+            <hr>
+        {% endfor %}
+    {% else %}
+        <p>No predictions found.</p>
+    {% endif %}
+    <br>
+    <a href="/">Go back to the search</a>
+</body>
+</html>
