@@ -67,8 +67,8 @@ def rank_restaurants(prompt: str, deployment_name: str = "YOUR_DEPLOYMENT_NAME")
         messages = [{"role": "user", "content": prompt}]  
         response = client.chat.completions.create(model=deployment, messages=messages, max_tokens=600, temperature = 0.1)
         return response.choices[0].message.content
-    except openai.error.OpenAIError as e:
-        print(f"Error calling Azure OpenAI: {e}")
+    except:
+        print(f"Error calling Azure OpenAI:")
         return ""
 
 # --- Main function to handle user queries ---
