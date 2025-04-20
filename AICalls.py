@@ -56,8 +56,8 @@ def create_ranking_prompt(query: str, restaurants: List[Dict]) -> str:
             prompt += f"{key.title()}: {value}\n"
         prompt += "\n"
 
-    prompt += f"Based on the user's query and the information provided above, identify the restaurants that best match the criteria. Rank these restaurants from best to worst according to how well they satisfy the query. Explain your reasoning for each ranking, highlighting specific details from their descriptions. At the end, tell me how far away it is from UCR in miles\n"
-    prompt += f"Put it in this format: Ranking, Rating(Reviews), Reasoning, Distance, each seperated by a line"
+    prompt += f"Based on the user's query and the information provided above, identify the restaurants that best match ALL the criteria. Rank these restaurants from best to worst according to how well they satisfy the query. Explain your reasoning for each ranking, highlighting specific details from their descriptions. At the end, tell me how far away it is from UCR in miles\n"
+    prompt += f"Put it in this format: Name, Rating(Reviews), Reasoning, Distance, each seperated by a line. Seperate each prediction by a semicolon"
     return prompt
 
 # --- Function to call Azure OpenAI for ranking ---
