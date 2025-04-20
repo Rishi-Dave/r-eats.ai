@@ -33,7 +33,8 @@ def index():
 @app.route('/search/<int:search_index>')
 def show_past_search(search_index):
     if 'past_searches' in session and 0 <= search_index < len(session['past_searches']):
-        past_search = session['past_searches'][search_index]
+        past_searches = session['past_searches'][::-1]
+        past_search = past_searches[search_index]
         return render_template('index.html', query=past_search['query'], predictions=past_search['results'], past_searches=session['past_searches'][::-1])
     else:
         return redirect(url_for('index'))  # Redirect to homepage if index is invalid
